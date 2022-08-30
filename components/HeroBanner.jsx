@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import {urlFor} from '../sanity_ecommerce/lib/client'
+import {urlFor} from '../lib/client'
 
 const HeroBanner = ({heroBanner}) => {
   return (
@@ -12,7 +12,7 @@ const HeroBanner = ({heroBanner}) => {
           <h3>{heroBanner.largeText1}</h3>
         </div>
         
-        <img src={urlFor(heroBanner.image)} alt="headphones" className='hero-banner-img' />
+        <img src={urlFor(heroBanner.image)} alt="Apple Phone" className='hero-banner-img' />
       </div>
      
      <div className='hero-banner-second'>
@@ -20,7 +20,7 @@ const HeroBanner = ({heroBanner}) => {
         <h1>Description</h1>
         <p>{heroBanner.desc}</p>
       </div>
-      <Link href={`/product/${heroBanner.product}`}>
+      <Link href={`/product/${heroBanner.slug.current}`}>
         <button type='button' className='hero-banner-btn'>{heroBanner.buttonText}</button>
       </Link>
      

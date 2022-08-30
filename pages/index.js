@@ -1,20 +1,20 @@
 
 import React from 'react'
 import { Product, FooterBanner, HeroBanner } from '../components'
-import {client} from '../sanity_ecommerce/lib/client'
+import {client} from '../lib/client'
 
-const Home = ({products, bannerData}) => {
+const Home = ({products, bannerData, footerData}) => {
   return (
     <>
-        <HeroBanner heroBanner = {bannerData && bannerData[0]}/>
+        <HeroBanner heroBanner = {bannerData.length && bannerData[0]}/>
         <div className='products-heading'>
-          <h2>Best Selling products</h2>  
-          <p>Headphones for everything for everyone</p>
+          <h2>Top Products</h2>  
+          
         </div>  
         <div className='products-container'>
-          {products?.map(product=><Product key={product.id} product={product}/>)}
+          {products?.map(product=><Product key={product._id} product={product}/>)}
         </div>
-        <FooterBanner/>
+        <FooterBanner footerBanner={footerData && footerData[0]}/>
     </>
   )
 }
@@ -24,8 +24,10 @@ export const getServerSideProps = async()=>{
   const products = await client.fetch(query)
   const queryBanner = '*[_type == "banner"]'
   const bannerData = await client.fetch(queryBanner)
+  const queryFooterBanner = '*[_type == "footerBanner"]'
+  const footerData = await client.fetch(queryFooterBanner)
 
-  return{props:{products, bannerData}}
+  return{props:{products, bannerData, footerData}}
 }
 
 export default Home

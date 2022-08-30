@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import {urlFor} from '../sanity_ecommerce/lib/client'
+import {urlFor} from '../lib/client'
 
 const Product = ({product:{name, image, slug,price}}) => {
   return (
