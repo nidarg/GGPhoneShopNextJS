@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useStateContext } from '../context/StateContext';
-
+import { AiOutlineShopping } from 'react-icons/ai';
 
 
 const Canceled = () => {
