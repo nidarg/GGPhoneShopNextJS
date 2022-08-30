@@ -1,10 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-
+import { useStateContext } from '../context/StateContext';
 
 
 
 const Canceled = () => {
+  const{setShowCart} = useStateContext()
   
   return (
     <div className="empty-cart">
